@@ -21,18 +21,22 @@ exemple utilisation:
     /*
     idem pour:
 
-      day.paques();
-      day.lundiDePaques();
       day.ascension();
       day.pentecote();
 
-      day.jourDeLAn();
-      day.feteDuTravail();
       day.victoireDeAllies();
-      day.feteNationale();
+      day.feteNationaleFr();
       day.assomption();
       day.toussaint();
       day.armistice();
+
+      day.jourDeLAn();
+      day.feteDuTravailCa();
+      day.feteDuTravailQc();
+      day.paques();
+      day.lundiDePaques();
+      day.feteActionGrace();
+      day.fetePatriote();
       day.noel();
     */
 

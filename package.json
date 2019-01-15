@@ -13,7 +13,7 @@
   "author": "damienlabat",
   "homepage": "https://github.com/c3rv3au/moment-ferie-ca",
   "dependencies": {
-    "moment": "^2.4.0"
+    "moment": "^2.23.0"
   },
   "devDependencies": {
     "grunt": "~0.4.5",

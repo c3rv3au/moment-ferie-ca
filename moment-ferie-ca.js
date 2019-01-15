@@ -1,9 +1,19 @@
-// https://github.com/damienlabat/moment-ferie-fr
+// https://github.com/c3rv3au/moment-ferie-ca
 (function () {
 
   "use strict";
 
   var initialize = function (moment) {
+
+		function getSecondMonday(startDate) {
+			var startOfMonth = moment(startDate).utc().startOf('month').startOf('isoweek');
+			var studyDate = moment(startDate).utc().startOf('month').startOf('isoweek').add(2, 'w');
+
+			if (studyDate.month() == startOfMonth.month()) {
+				studyDate = studyDate.subtract(1, 'w');
+			}
+			return studyDate;
+		}
 
     // Source: http://techneilogy.blogspot.fr/2012/02/couple-of-years-ago-i-posted-source.html
     moment.fn.easterDay = moment.fn.paques = function (Y) {
@@ -61,8 +71,22 @@
       if (Y === undefined) {
         Y = this.year();
       }
-      return moment("1-5-" + Y, "DD-MM-YYYY");
+
+			let date = moment().set('year', Y).set('month', 8).set('date', 1).isoWeekday(8)
+			if(date.date() == 8) { // 
+				date = date.isoWeekday(-6)
+			}
+			return date;
     };
+
+    moment.fn.feteActionGrace = function (Y) {
+      if (Y === undefined) {
+        Y = this.year();
+      }
+
+			var mo = moment().set('year', Y).set('month', 9).set('date', 1);
+			return getSecondMonday(mo);
+		}
 
     moment.fn.victoireDeAllies = function (Y) {
       if (Y === undefined) {
@@ -71,11 +95,39 @@
       return moment("8-5-" + Y, "DD-MM-YYYY");
     };
 
-    moment.fn.feteNationale = function (Y) {
+    moment.fn.feteNationaleFr = function (Y) {
       if (Y === undefined) {
         Y = this.year();
       }
       return moment("14-7-" + Y, "DD-MM-YYYY");
+    };
+
+    moment.fn.feteNationaleCa = function (Y) {
+      if (Y === undefined) {
+        Y = this.year();
+      }
+      return moment("1-7-" + Y, "DD-MM-YYYY");
+    };
+
+    moment.fn.feteNationaleQc = function (Y) {
+      if (Y === undefined) {
+        Y = this.year();
+      }
+      return moment("24-6-" + Y, "DD-MM-YYYY");
+    };
+
+    moment.fn.feteNoel = function (Y) {
+      if (Y === undefined) {
+        Y = this.year();
+      }
+      return moment("25-12-" + Y, "DD-MM-YYYY");
+    };
+
+    moment.fn.fetePatriote = function (Y) {
+      if (Y === undefined) {
+        Y = this.year();
+      }
+      return moment("25-05-" + Y, "DD-MM-YYYY").startOf('isoWeek');
     };
 
     moment.fn.assomption = function (Y) {
@@ -110,7 +162,12 @@
       "Jour de l'an": moment.fn.jourDeLAn,
       "Fête du travail": moment.fn.feteDuTravail,
       "Victoire des alliés": moment.fn.victoireDeAllies,
-      "Fête Nationale": moment.fn.feteNationale,
+      "Fête Nationale Francaise": moment.fn.feteNationaleFr,
+      "Fête Nationale Canada": moment.fn.feteNationaleCa,
+      "Fête Nationale Quebec": moment.fn.feteNationaleQc,
+      "Noel": moment.fn.feteNoel,
+			"ActionGrace": moment.fn.feteActionGrace,
+			"Patriote": moment.fn.fetePatriote,
       "Assomption": moment.fn.assomption,
       "Toussaint": moment.fn.toussaint,
       "Armistice": moment.fn.armistice,
@@ -162,7 +219,7 @@
   };
 
   if (typeof define === "function" && define.amd) {
-    define("moment-ferie-fr", ["moment"], function (moment) {
+    define("moment-ferie-ca", ["moment"], function (moment) {
       return this.moment = initialize(moment);
     });
   } else if (typeof module !== "undefined") {
