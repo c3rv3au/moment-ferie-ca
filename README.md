@@ -31,8 +31,9 @@ exemple utilisation:
       day.armistice();
 
       day.jourDeLAn();
-      day.feteDuTravailCa();
-      day.feteDuTravailQc();
+      day.feteNationaleCa();
+      day.feteNationaleQc();
+      day.feteDuTravail();
       day.paques();
       day.lundiDePaques();
       day.feteActionGrace();
