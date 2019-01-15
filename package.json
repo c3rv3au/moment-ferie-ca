@@ -1,17 +1,17 @@
 {
-  "name": "moment-ferie-fr",
+  "name": "moment-ferie-ca",
   "version": "0.2.0",
-  "description": "An extension to moment.js that handles working days in France",
-  "main": "moment-ferie-fr.js",
+  "description": "An extension to moment.js that handles working days in Canada",
+  "main": "moment-ferie-ca.js",
   "scripts": {
     "test": "node test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DepthFrance/moment-ferie-fr.git"
+    "url": "git+https://github.com/c3rv3au/moment-ferie-ca.git"
   },
   "author": "damienlabat",
-  "homepage": "https://github.com/DepthFrance/moment-ferie-fr",
+  "homepage": "https://github.com/c3rv3au/moment-ferie-ca",
   "dependencies": {
     "moment": "^2.4.0"
   },
@@ -20,13 +20,13 @@
     "grunt-release": "~0.7.0"
   },
   "bugs": {
-    "url": "https://github.com/DepthFrance/moment-ferie-fr/issues"
+    "url": "https://github.com/c3rv3au/moment-ferie-ca/issues"
   },
   "keywords": [
     "moment",
     "ferie",
     "holiday",
-    "france",
+    "canada",
     "date"
   ],
   "license": "ISC"
